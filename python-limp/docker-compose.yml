@@ -1,0 +1,25 @@
+version: '3.3'
+
+services:
+  mongodb:
+    image: mongo:4.2
+    restart: always
+    volumes:
+     - ./db:/data/db
+    environment:
+     MONGO_INITDB_ROOT_USERNAME: admin
+     MONGO_INITDB_ROOT_PASSWORD: admin
+
+  code-server:
+    depends_on:
+     - mongodb
+    build: .
+    restart: always
+    volumes:
+     - ./project:/home/coder/project
+    ports:
+     - "8080:8080"
+     - "8081:8081"
+    environment:
+     MONGO_DB_HOST: admin:admin@mongodb:27017
+     PASSWORD: ${CODE_SERVER_PASSWROD}
