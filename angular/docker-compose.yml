@@ -1,0 +1,12 @@
+version: '3.3'
+
+services:
+  code-server:
+    build: .
+    volumes:
+      - ./project:/home/coder/project
+    ports:
+      - "8080:8080"
+      - "4200:4200"
+    environment:
+      PASSWORD: ${CODE_SERVER_PASSWORD}
