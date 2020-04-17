@@ -13,13 +13,13 @@ RUN ./configure --enable-optimizations
 RUN make -j 8
 RUN make altinstall
 
-RUN apt-get install -y mongodb
-
 USER coder
 
 RUN python3.8 -m pip install --user -r https://raw.githubusercontent.com/masaar/limp/master/requirements.txt
 RUN python3.8 -m pip install --user pylint mypy black
 
 RUN code-server --install-extension ms-python.python
+
 RUN code-server --install-extension donjayamanne.githistory
 RUN code-server --install-extension chiragpat.tomorrow-and-tomorrow-night-operator-mono-theme
+RUN code-server --install-extension streetsidesoftware.code-spell-checker
