@@ -1,4 +1,4 @@
-from codercom/code-server:3.1.1
+from codercom/code-server:3.4.0
 
 USER root
 
@@ -23,3 +23,4 @@ RUN code-server --install-extension ms-python.python
 RUN code-server --install-extension donjayamanne.githistory
 RUN code-server --install-extension chiragpat.tomorrow-and-tomorrow-night-operator-mono-theme
 RUN code-server --install-extension streetsidesoftware.code-spell-checker
+RUN code-server --install-extension softwaredotcom.swdc-vscode
